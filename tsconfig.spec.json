@@ -4,7 +4,9 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
+      "jest",
+      "jsdom",
+      "node"
     ]
   },
   "files": [
@@ -14,5 +16,10 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/environments/*.ts",
+    "main.ts",
+    "polyfills.ts"
   ]
 }

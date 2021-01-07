@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+/* import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -27,5 +27,18 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('intro-storybook-v60 app is running!');
+  });
+});
+ */
+import { render, screen } from '@testing-library/angular';
+import { AppComponent } from './app.component';
+
+describe('App', () => {
+  test('should render the App component', async () => {
+    const { getByText } = await render(AppComponent);
+    expect(getByText('Welcome'));
+  });
+  test('BOOP', () => {
+    expect(2 + 2).toBe(4);
   });
 });

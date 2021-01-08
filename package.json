@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
-    "storybook": "npm run docs:json && start-storybook -p 6006",
+    "storybook": "npm run docs:json && start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "npm run docs:json && build-storybook",
     "jest": "jest --watch"
   },
@@ -37,6 +37,7 @@
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-essentials": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
+    "@storybook/addon-storyshots": "^6.1.11",
     "@storybook/angular": "^6.1.11",
     "@testing-library/angular": "^10.3.0",
     "@types/jest": "^26.0.20",
@@ -56,7 +57,7 @@
     "setupFilesAfterEnv": [
       "<rootDir>/src/jest-config/setup.ts"
     ],
-    "transformIgnorePatterns":[
+    "transformIgnorePatterns": [
       "node_modules/(?!@storybook/*)"
     ],
     "testPathIgnorePatterns": [
@@ -75,14 +76,16 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "tsconfig": "<rootDir>/tsconfig.spec.json",
         "stringifyContentPathRegex": "\\.html$",
         "diagnostics": false,
         "isolatedModules": true,
-        "astTransformers": [
-          "jest-preset-angular/build/InlineFilesTransformer",
-          "jest-preset-angular/build/StripStylesTransformer"
-        ]
+        "astTransformers": {
+          "before":[
+            "jest-preset-angular/build/InlineFilesTransformer",
+            "jest-preset-angular/build/StripStylesTransformer"
+          ]
+        }
       }
     },
     "moduleNameMapper": {
@@ -91,7 +94,8 @@
     },
     "transform": {
       "^.+\\.(ts|html)$": "ts-jest",
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.stories\\.[jt]sx?$": "@storybook/addon-storyshots/injectFileName"
     },
     "moduleFileExtensions": [
       "ts",

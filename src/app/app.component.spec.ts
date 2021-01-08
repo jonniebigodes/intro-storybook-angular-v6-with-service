@@ -30,7 +30,7 @@ describe('AppComponent', () => {
   });
 });
  */
-import { render, screen } from '@testing-library/angular';
+import { render } from '@testing-library/angular';
 import { AppComponent } from './app.component';
 
 describe('App', () => {

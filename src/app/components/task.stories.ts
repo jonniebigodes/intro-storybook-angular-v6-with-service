@@ -7,8 +7,14 @@ export default {
   component: TaskComponent,
   title: 'Task',
   excludeStories: /.*Data$/,
+  parameters: {
+    assets: [
+      './assets/image_1.jpg',
+      './assets/image_2.jpg',
+      './assets/image_3.jpg',
+    ],
+  },
 } as Meta;
-
 
 export const actionsData = {
   onPinTask: action('onPinTask'),
@@ -28,7 +34,7 @@ Default.args = {
     state: 'Task_INBOX',
     updated_at: new Date(2019, 0, 1, 9, 0),
   },
-  ...actionsData
+  ...actionsData,
 };
 export const Pinned = Template.bind({});
 Pinned.args = {

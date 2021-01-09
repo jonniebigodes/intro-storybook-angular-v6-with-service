@@ -682,7 +682,7 @@
         },
         {
             "name": "TaskComponent",
-            "id": "component-TaskComponent-d7fc368a71d69227b123406643025170",
+            "id": "component-TaskComponent-2f15cb5787e2ffb4c9d373a5fbe47ce7",
             "file": "src/app/components/task.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -692,14 +692,14 @@
             "selector": "app-task",
             "styleUrls": [],
             "styles": [],
-            "template": "<div class=\"list-item {{ task?.state }}\">\n  <label class=\"checkbox\">\n    <input\n      type=\"checkbox\"\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n      disabled=\"true\"\n      name=\"checked\"\n    />\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\n  </label>\n  <div class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task?.title\"\n      readonly=\"true\"\n      placeholder=\"Input title\"\n    />\n  </div>\n  <div class=\"actions\">\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n      <span class=\"icon-star\"></span>\n    </a>\n  </div>\n</div>\n",
+            "template": "<div class=\"list-item {{ task?.state }}\">\n  <label class=\"checkbox\">\n    <input\n      type=\"checkbox\"\n      [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n      disabled=\"true\"\n      name=\"checked\"\n    />\n    <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\n  </label>\n  <div class=\"title\">\n    <input\n      type=\"text\"\n      [value]=\"task?.title\"\n      readonly=\"true\"\n      placeholder=\"Input title\"\n      [ngStyle]=\"{'textOverflow':'ellipsis'}\"\n    />\n  </div>\n  <div class=\"actions\">\n    <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n      <span class=\"icon-star\"></span>\n    </a>\n  </div>\n</div>\n",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
                     "name": "task",
                     "description": "<p>Composition of the task </p>\n",
-                    "line": 56,
+                    "line": 57,
                     "type": "Task"
                 }
             ],
@@ -708,14 +708,14 @@
                     "name": "onArchiveTask",
                     "defaultValue": "new EventEmitter()",
                     "description": "<p>Event to change the task to archived </p>\n",
-                    "line": 63,
+                    "line": 64,
                     "type": "EventEmitter<any>"
                 },
                 {
                     "name": "onPinTask",
                     "defaultValue": "new EventEmitter()",
                     "description": "<p>Event to change the task to pinned </p>\n",
-                    "line": 59,
+                    "line": 60,
                     "type": "EventEmitter<any>"
                 }
             ],
@@ -732,7 +732,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 70,
+                    "line": 71,
                     "description": "<p>Method that invokes the event to change the task to archived </p>\n",
                     "jsdoctags": [
                         {
@@ -755,7 +755,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 67,
                     "description": "<p>Method that invokes the event to change the task to pinned </p>\n",
                     "jsdoctags": [
                         {
@@ -773,7 +773,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from '../models/task.model';\n@Component({\n  selector: 'app-task',\n  template: `\n    <div class=\"list-item {{ task?.state }}\">\n      <label class=\"checkbox\">\n        <input\n          type=\"checkbox\"\n          [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n          disabled=\"true\"\n          name=\"checked\"\n        />\n        <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\n      </label>\n      <div class=\"title\">\n        <input\n          type=\"text\"\n          [value]=\"task?.title\"\n          readonly=\"true\"\n          placeholder=\"Input title\"\n        />\n      </div>\n      <div class=\"actions\">\n        <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n          <span class=\"icon-star\"></span>\n        </a>\n      </div>\n    </div>\n  `,\n})\nexport class TaskComponent {\n  /** Composition of the task */\n  @Input() task: Task;\n  /** Event to change the task to pinned */\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output() onPinTask: EventEmitter<any> = new EventEmitter();\n\n   /** Event to change the task to archived */\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output() onArchiveTask: EventEmitter<any> = new EventEmitter();\n  \n  /** Method that invokes the event to change the task to pinned */\n  onPin(id: any) {\n    this.onPinTask.emit(id);\n  }\n  /** Method that invokes the event to change the task to archived */\n  onArchive(id: any) {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { Task } from '../models/task.model';\n@Component({\n  selector: 'app-task',\n  template: `\n    <div class=\"list-item {{ task?.state }}\">\n      <label class=\"checkbox\">\n        <input\n          type=\"checkbox\"\n          [defaultChecked]=\"task?.state === 'TASK_ARCHIVED'\"\n          disabled=\"true\"\n          name=\"checked\"\n        />\n        <span class=\"checkbox-custom\" (click)=\"onArchive(task.id)\"></span>\n      </label>\n      <div class=\"title\">\n        <input\n          type=\"text\"\n          [value]=\"task?.title\"\n          readonly=\"true\"\n          placeholder=\"Input title\"\n          [ngStyle]=\"{'textOverflow':'ellipsis'}\"\n        />\n      </div>\n      <div class=\"actions\">\n        <a *ngIf=\"task?.state !== 'TASK_ARCHIVED'\" (click)=\"onPin(task.id)\">\n          <span class=\"icon-star\"></span>\n        </a>\n      </div>\n    </div>\n  `,\n})\nexport class TaskComponent {\n  /** Composition of the task */\n  @Input() task: Task;\n  /** Event to change the task to pinned */\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output() onPinTask: EventEmitter<any> = new EventEmitter();\n\n   /** Event to change the task to archived */\n  // tslint:disable-next-line: no-output-on-prefix\n  @Output() onArchiveTask: EventEmitter<any> = new EventEmitter();\n  \n  /** Method that invokes the event to change the task to pinned */\n  onPin(id: any) {\n    this.onPinTask.emit(id);\n  }\n  /** Method that invokes the event to change the task to archived */\n  onArchive(id: any) {\n    this.onArchiveTask.emit(id);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": ""
@@ -964,7 +964,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-task-list.stories.ts",
+                "file": "src/app/components/pure-inbox-screen.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -972,7 +972,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-inbox-screen.stories.ts",
+                "file": "src/app/components/pure-task-list.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1132,17 +1132,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-task-list.stories.ts",
-                "type": "Story<PureTaskListComponent>",
-                "defaultValue": "(args: PureTaskListComponent) => ({\n  component: TaskComponent,\n  moduleMetadata: {\n    declarations: [PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n  template: `<app-pure-task-list [tasks]=\"tasks\" [loading]=\"loading\" (onPinTask)=\"onPinTask($event)\" (onArchiveTask)=\"onArchiveTask($event)\"></app-pure-task-list>`,\n})"
+                "file": "src/app/components/pure-inbox-screen.stories.ts",
+                "type": "Story<PureInboxScreenComponent>",
+                "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-inbox-screen.stories.ts",
-                "type": "Story<PureInboxScreenComponent>",
-                "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
+                "file": "src/app/components/pure-task-list.stories.ts",
+                "type": "Story<PureTaskListComponent>",
+                "defaultValue": "(args: PureTaskListComponent) => ({\n  component: TaskComponent,\n  moduleMetadata: {\n    declarations: [PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n  template: `<app-pure-task-list [tasks]=\"tasks\" [loading]=\"loading\" (onPinTask)=\"onPinTask($event)\" (onArchiveTask)=\"onArchiveTask($event)\"></app-pure-task-list>`,\n})"
             },
             {
                 "name": "Template",
@@ -1207,6 +1207,32 @@
                     "defaultValue": "(args: TaskComponent) => ({\n  component: TaskComponent,\n  props: args,\n})"
                 }
             ],
+            "src/app/components/pure-inbox-screen.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "Story<PureInboxScreenComponent>",
+                    "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
+                }
+            ],
             "src/app/components/pure-task-list.stories.ts": [
                 {
                     "name": "Default",
@@ -1247,32 +1273,6 @@
                     "file": "src/app/components/pure-task-list.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
-                }
-            ],
-            "src/app/components/pure-inbox-screen.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Error",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "Story<PureInboxScreenComponent>",
-                    "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [

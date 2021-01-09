@@ -41,6 +41,7 @@ import { Task } from '../models/task.model';
           [value]="task?.title"
           readonly="true"
           placeholder="Input title"
+          [ngStyle]="{'textOverflow':'ellipsis'}"
         />
       </div>
       <div class="actions">

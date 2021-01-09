@@ -907,6 +907,15 @@
                         },
                         {
                             "name": "PureInboxScreenComponent"
+                        },
+                        {
+                            "name": "PureTaskListComponent"
+                        },
+                        {
+                            "name": "TaskComponent"
+                        },
+                        {
+                            "name": "TaskListComponent"
                         }
                     ]
                 },
@@ -955,7 +964,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-inbox-screen.stories.ts",
+                "file": "src/app/components/pure-task-list.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -963,7 +972,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-task-list.stories.ts",
+                "file": "src/app/components/pure-inbox-screen.stories.ts",
                 "type": "",
                 "defaultValue": "Template.bind({})"
             },
@@ -1123,17 +1132,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-inbox-screen.stories.ts",
-                "type": "Story<PureInboxScreenComponent>",
-                "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  props: args,\n})"
+                "file": "src/app/components/pure-task-list.stories.ts",
+                "type": "Story<PureTaskListComponent>",
+                "defaultValue": "(args: PureTaskListComponent) => ({\n  component: TaskComponent,\n  moduleMetadata: {\n    declarations: [PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n  template: `<app-pure-task-list [tasks]=\"tasks\" [loading]=\"loading\" (onPinTask)=\"onPinTask($event)\" (onArchiveTask)=\"onArchiveTask($event)\"></app-pure-task-list>`,\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/pure-task-list.stories.ts",
-                "type": "Story<PureTaskListComponent>",
-                "defaultValue": "(args: PureTaskListComponent) => ({\n  component: TaskComponent,\n  moduleMetadata: {\n    declarations: [PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n  template: `<app-pure-task-list [tasks]=\"tasks\" [loading]=\"loading\" (onPinTask)=\"onPinTask($event)\" (onArchiveTask)=\"onArchiveTask($event)\"></app-pure-task-list>`,\n})"
+                "file": "src/app/components/pure-inbox-screen.stories.ts",
+                "type": "Story<PureInboxScreenComponent>",
+                "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
             },
             {
                 "name": "Template",
@@ -1198,32 +1207,6 @@
                     "defaultValue": "(args: TaskComponent) => ({\n  component: TaskComponent,\n  props: args,\n})"
                 }
             ],
-            "src/app/components/pure-inbox-screen.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Error",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/pure-inbox-screen.stories.ts",
-                    "type": "Story<PureInboxScreenComponent>",
-                    "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  props: args,\n})"
-                }
-            ],
             "src/app/components/pure-task-list.stories.ts": [
                 {
                     "name": "Default",
@@ -1264,6 +1247,32 @@
                     "file": "src/app/components/pure-task-list.stories.ts",
                     "type": "",
                     "defaultValue": "Template.bind({})"
+                }
+            ],
+            "src/app/components/pure-inbox-screen.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Error",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/pure-inbox-screen.stories.ts",
+                    "type": "Story<PureInboxScreenComponent>",
+                    "defaultValue": "(\n  args: PureInboxScreenComponent\n) => ({\n  component: PureInboxScreenComponent,\n  moduleMetadata: {\n    declarations: [TaskListComponent, PureTaskListComponent, TaskComponent],\n    imports: [CommonModule],\n  },\n  props: args,\n})"
                 }
             ],
             "src/environments/environment.prod.ts": [

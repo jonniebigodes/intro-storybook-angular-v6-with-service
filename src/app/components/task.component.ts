@@ -41,6 +41,7 @@ import { Task } from '../models/task.model';
           [value]="task?.title"
           readonly="true"
           placeholder="Input title"
+          [ngStyle]="{'background':'red'}"
         />
       </div>
       <div class="actions">

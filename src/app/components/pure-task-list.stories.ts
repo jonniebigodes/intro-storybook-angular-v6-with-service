@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Story, Meta } from '@storybook/angular/types-6-0';
 
-import { TaskListComponent } from './task-list.component';
+import { PureTaskListComponent } from './pure-task-list.component';
 import { TaskComponent } from './task.component';
 
 import * as TaskStories from './task.stories';
 
 export default {
-  component: TaskListComponent,
-  title: 'TaskList',
+  component: PureTaskListComponent,
+  title: 'PureTaskList',
   decorators: [
     (storyFn) => {
       const story = storyFn();
@@ -20,14 +20,14 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<TaskListComponent> = (args: TaskListComponent) => ({
+const Template: Story<PureTaskListComponent> = (args: PureTaskListComponent) => ({
   component: TaskComponent,
   moduleMetadata: {
-    declarations: [TaskListComponent, TaskComponent],
+    declarations: [PureTaskListComponent, TaskComponent],
     imports: [CommonModule],
   },
   props: args,
-  template: `<app-task-list [tasks]="tasks" [loading]="loading" (onPinTask)="onPinTask($event)" (onArchiveTask)="onArchiveTask($event)"></app-task-list>`,
+  template: `<app-pure-task-list [tasks]="tasks" [loading]="loading" (onPinTask)="onPinTask($event)" (onArchiveTask)="onArchiveTask($event)"></app-pure-task-list>`,
 });
 
 export const Default = Template.bind({});
